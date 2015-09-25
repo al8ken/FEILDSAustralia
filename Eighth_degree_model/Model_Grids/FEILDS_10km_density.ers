@@ -1,0 +1,31 @@
+DatasetHeader Begin
+	Version		= "7.0"
+	Name		= "FEILDS_10km_density.ers"
+	LastUpdated	= Mon Apr 13 05:55:28 GMT 2015
+	DataSetType	= ERStorage
+	DataType	= Raster
+	ByteOrder	= LSBFirst
+	CoordinateSpace Begin
+		Datum		= "WGS84"
+		Projection	= "GEODETIC"
+		CoordinateType	= LL
+		Rotation	= 0:0:0.0
+	CoordinateSpace End
+	RasterInfo Begin
+		CellType	= IEEE4ByteReal
+		NullCellValue	= -999999
+		CellInfo Begin
+			Xdimension	= 0.125
+			Ydimension	= 0.125
+		CellInfo End
+		NrOfLines	= 481
+		NrOfCellsPerLine	= 521
+		RegistrationCoord Begin
+			Latitude	= -54:56:15.0
+			Longitude	= 99:56:15.0
+		RegistrationCoord End
+		RegistrationCellX	= 0
+		RegistrationCellY	= 480
+		NrOfBands	= 1
+	RasterInfo End
+DatasetHeader End

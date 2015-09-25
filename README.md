@@ -26,7 +26,7 @@ This folder has three files:
 	
 #MODEL:
 
-This folder has three files (one for very high resolution), and one folder (VoxFiles):
+This folder has three files (one for high and very high resolution), and one folder (VoxFiles):
 
 1) Quarter_degree_model.vo
 	Gocad Voxet file containing 14 properties of the model. Coordinates are u=Latitude and v=longitude (in degrees) and w=height above ellipsoid (in 100s km)
@@ -48,9 +48,12 @@ This folder has three files (one for very high resolution), and one folder (VoxF
 		Pb_at_PseudoElevation --- Background pressure calculated for PseudoElevations
 		Pressure_Anomaly --- is Pressure - Pb_at_PseudoElevation
 	    PseudoElevation --- PseudoElevation in 100skm, see text for details of derivation
-2) Quarter_degree_model_density.xyz
+		
+Due to the 100 Mb file-size limitation of Github, the voxet property files for the very high resolution model were split into three parts (split was done using 7-zip). These must be recombined using cat (i.e cat density.001 density.002 density.003 > density) or use a suitable application
+
+2) Half_degree_model_density.xyz
 	The entire density model realised in space-delimited ASCII format. This is the density ANOMALY, i.e. it is necessary to add the mean density for real-valued data. Format: 1 header line, columns are Longitude(degrees), Latitude(degrees), h(100s km), density(kg/m^3). Due to size restrictions, this file is NOT provided for the very-high resolution model.
-3) Quarter_degree_model_pressure_anomaly.xyz	
+3) Half_degree_model_pressure_anomaly.xyz	
 	The entire pressure model realised in space-delimited ASCII format. This is the pressure ANOMALY, i.e. it is necessary to add the background pressure for real-valued data. Format: 1 header line, columns are Longitude(degrees), Latitude(degrees), h(100s km), pressure anomaly(Pa). Due to size restrictions, this file is NOT provided for the very-high resolution model.
 
 In the Model_Grids directory, the very high resolution model also includes raster grids (in ERMapper format) of True_density at the same depths as the initial AuSREM model.  
@@ -64,6 +67,7 @@ For ease of use we also supply for each model resolution a voxet extraction and 
 3 - Calculation of the residual field from a selected model volume (e.g. as a precursor to more detailed modelling of that volume)
 
 Please see comments in the script for further details of this tool. Note that, as we implement it here, it is model specific and relies on unchanged filenames and directory structure.
+
 =======
 # FEILDSAustralia
 Data and results of the Finite Element Inversion of Lithospheric Density Structure (FEILDS) project for Australia at 1/8 1/4 and 1/2 degree resolution.
