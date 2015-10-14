@@ -5,9 +5,11 @@ This project contains the data and models resulting from the FEILDS Australia gr
 
 Use of these data and models should be acknowledged by citation of the following manuscript:
 
-Aitken, A.R.A., Altinay, C. and Gross, L. 2016. Australia's lithospheric density field, and its isostatic equilibration. Geophysical Journal International
+Aitken, A.R.A., Altinay, C. and Gross, L. 2016. Australia's lithospheric density field, and its isostatic equilibration. Geophysical Journal International, doi:10.1093/gji/ggv396
 
 Please read this manuscript carefully to understand the uncertainties and biases inherent in this dataset prior to using these models.
+
+Please contact alan.aitken@uwa.edu.au if you are having difficulties with these models
 
 # Model Directory Structure and contents
 
@@ -47,14 +49,14 @@ This folder has three files (one for high and very high resolution), and one fol
 		Pressure --- Total Pressure returned from the model
 		Pb_at_PseudoElevation --- Background pressure calculated for PseudoElevations
 		Pressure_Anomaly --- is Pressure - Pb_at_PseudoElevation
-	    PseudoElevation --- PseudoElevation in 100skm, see text for details of derivation
+	PseudoElevation --- PseudoElevation in 100skm, see text for details of derivation
 		
 Due to the 100 Mb file-size limitation of Github, the voxet property files for the very high resolution model were split into three parts (split was done using 7-zip). These must be recombined using cat (i.e cat density.001 density.002 density.003 > density) or use a suitable application
 
 2) Half_degree_model_density.xyz
-	The entire density model realised in space-delimited ASCII format. This is the density ANOMALY, i.e. it is necessary to add the mean density for real-valued data. Format: 1 header line, columns are Longitude(degrees), Latitude(degrees), h(100s km), density(kg/m^3). Due to size restrictions, this file is NOT provided for the very-high resolution model.
+	The entire density model realised in space-delimited ASCII format. This is the density ANOMALY, i.e. it is necessary to add the mean density for real-valued data. Format: 1 header line, columns are Longitude(degrees), Latitude(degrees), h(100s km), density(kg/m^3). Due to size restrictions, this file is NOT provided for the high or very-high resolution models.
 3) Half_degree_model_pressure_anomaly.xyz	
-	The entire pressure model realised in space-delimited ASCII format. This is the pressure ANOMALY, i.e. it is necessary to add the background pressure for real-valued data. Format: 1 header line, columns are Longitude(degrees), Latitude(degrees), h(100s km), pressure anomaly(Pa). Due to size restrictions, this file is NOT provided for the very-high resolution model.
+	The entire pressure model realised in space-delimited ASCII format. This is the pressure ANOMALY, i.e. it is necessary to add the background pressure for real-valued data. Format: 1 header line, columns are Longitude(degrees), Latitude(degrees), h(100s km), pressure anomaly(Pa). Due to size restrictions, this file is NOT provided for the high or very-high resolution models.
 
 In the Model_Grids directory, the very high resolution model also includes raster grids (in ERMapper format) of True_density at the same depths as the initial AuSREM model.  
 
@@ -62,8 +64,8 @@ In the Model_Grids directory, the very high resolution model also includes raste
 
 For ease of use we also supply for each model resolution a voxet extraction and calculation tool in the script voxetclipcalc.py. This script requires escript to be installed. This has three main functions:
 
-1 - Extraction of model sub-volumes as CSV format (e.g. to extract only a desired Lat/Long and/or depth-range or to extract all but a selected volume )
-2 - Calculation of the regional field excluding a selected model volume (e.g. as a precursor to more detailed modelling of that volume) 
+1 - Extraction of model sub-volumes as CSV format (e.g. to extract only a desired Lat/Long and/or depth-range or to extract all but a selected volume)
+2 - Calculation of the regional field excluding a selected model volume (e.g. as a precursor to more detailed modelling of that volume).
 3 - Calculation of the residual field from a selected model volume (e.g. as a precursor to more detailed modelling of that volume)
 
 Please see comments in the script for further details of this tool. Note that, as we implement it here, it is model specific and relies on unchanged filenames and directory structure.
